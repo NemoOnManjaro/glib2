@@ -45,6 +45,7 @@ jobs:
             Server = https://img.nemomobile.net/manjaro/${{ matrix.branch }}/\$arch\n
       - name: Copy to server
         uses: appleboy/scp-action@v0.1.7
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER }}
